@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.ButtonGroup" name="typeButtonGroup">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jLabel9" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel2" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="desiredFood" min="-2" pref="215" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="aiButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="resultNumSpin" min="-2" pref="77" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="excludeCuisineButton" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane6" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane7" alignment="1" min="-2" pref="90" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="addIntoleranceButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane8" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="597" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="214" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
+                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="dietCombo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dietCommit" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="365" max="-2" attributes="0"/>
+                                      <Component id="searchButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="419" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="sideDishRadio" min="-2" max="-2" attributes="0"/>
+                                          <Component id="mainCourseRadio" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dessertRadio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="appRadio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="saladRadio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="beverRadio" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="drinkRadio" min="-2" pref="104" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="sauceRadio" min="-2" pref="104" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="soupRadio" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="snackRadio" min="-2" pref="104" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="breadRadio" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="marinadeRadio" min="-2" pref="104" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="breakfastRadio" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="fingerfoodRadio" min="-2" pref="104" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="181" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="apiTextField" max="32767" attributes="0"/>
+                  <Component id="jScrollPane5" alignment="0" min="-2" pref="385" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="sortToggle" min="-2" max="-2" attributes="0"/>
+                          <Component id="sortCriteriaBox" min="-2" max="-2" attributes="0"/>
+                          <Component id="prepTime" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="desiredFood" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="aiButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel9" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="apiTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="prepTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sortCriteriaBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sortToggle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Component id="jScrollPane5" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="searchButton" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="resultNumSpin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="excludeCuisineButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jScrollPane6" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane2" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Component id="dietCombo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="dietCommit" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="addIntoleranceButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jScrollPane8" min="-2" pref="75" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="mainCourseRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="breadRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="marinadeRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="sideDishRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="breakfastRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fingerfoodRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="dessertRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="soupRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="snackRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="appRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="beverRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="drinkRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="sauceRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="saladRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Welcome to TechnicallyCooking"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="searchButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Search Recipes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="desiredFood">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="desiredFoodFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="How many food types?"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cuisine Types:"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="allCuisinesJList">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="26">
+                <StringItem index="0" value="African"/>
+                <StringItem index="1" value="American"/>
+                <StringItem index="2" value="British"/>
+                <StringItem index="3" value="Cajun"/>
+                <StringItem index="4" value="Caribbean"/>
+                <StringItem index="5" value="Chinese"/>
+                <StringItem index="6" value="Eastern European"/>
+                <StringItem index="7" value="European"/>
+                <StringItem index="8" value="French"/>
+                <StringItem index="9" value="German"/>
+                <StringItem index="10" value="Greek"/>
+                <StringItem index="11" value="Indian"/>
+                <StringItem index="12" value="Irish"/>
+                <StringItem index="13" value="Italian"/>
+                <StringItem index="14" value="Japanese"/>
+                <StringItem index="15" value="Jewish"/>
+                <StringItem index="16" value="Korean"/>
+                <StringItem index="17" value="Latin American"/>
+                <StringItem index="18" value="Mediterranean"/>
+                <StringItem index="19" value="Mexican"/>
+                <StringItem index="20" value="Middle Eastern"/>
+                <StringItem index="21" value="Nordic"/>
+                <StringItem index="22" value="Southern"/>
+                <StringItem index="23" value="Spanish"/>
+                <StringItem index="24" value="Thai"/>
+                <StringItem index="25" value="Vietnamese"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="excludeCuisineButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Exclude Cuisine Type"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="excludeCuisineButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dietary Restrictions:"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="allIntolsJList">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="12">
+                <StringItem index="0" value="Dairy"/>
+                <StringItem index="1" value="Egg"/>
+                <StringItem index="2" value="Gluten"/>
+                <StringItem index="3" value="Grain"/>
+                <StringItem index="4" value="Peanut"/>
+                <StringItem index="5" value="Seafood"/>
+                <StringItem index="6" value="Sesame"/>
+                <StringItem index="7" value="Shellfish"/>
+                <StringItem index="8" value="Soy"/>
+                <StringItem index="9" value="Sulfite"/>
+                <StringItem index="10" value="Treet Nut"/>
+                <StringItem index="11" value="Wheat"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Intolerances: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="addIntoleranceButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add Intolerance"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addIntoleranceButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="mainCourseRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Main Course"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="sideDishRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Side Dish"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="dessertRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Dessert"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="appRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Appetizer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="saladRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Salad"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="breadRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Bread"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="breakfastRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Breakfast"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="soupRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Soup"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="beverRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Beverage"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="sauceRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Sauce"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="marinadeRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Marinade"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="fingerfoodRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Fingerfood"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="snackRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Snack"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="drinkRadio">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="typeButtonGroup"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Drink"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Maximum Preparation Time (In Minutes):"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="aiButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Use AI To Generate Food"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aiButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sort Criteria"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sort Direction"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="sortToggle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ascending"/>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="sortToggleItemStateChanged"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="nutritionTable">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="36">
+                <Column editable="true" title="Nutrition Factor" type="java.lang.Object">
+                  <Data value="Carbohydrates"/>
+                  <Data value="Protein"/>
+                  <Data value="Calories"/>
+                  <Data value="Fat"/>
+                  <Data value="Alcohol"/>
+                  <Data value="Caffeine"/>
+                  <Data value="Copper"/>
+                  <Data value="Calcium"/>
+                  <Data value="Choline"/>
+                  <Data value="Cholesterol"/>
+                  <Data value="Fluoride"/>
+                  <Data value="Saturated Fat"/>
+                  <Data value="Vitamin A"/>
+                  <Data value="Vitamin C"/>
+                  <Data value="Vitamin D"/>
+                  <Data value="Vitamin E"/>
+                  <Data value="Vitamin K"/>
+                  <Data value="Vitamin B1"/>
+                  <Data value="Vitamin B2"/>
+                  <Data value="Vitamin B3"/>
+                  <Data value="Vitamin B5"/>
+                  <Data value="Vitamin B6"/>
+                  <Data value="Vitamin B12"/>
+                  <Data value="Fiber"/>
+                  <Data value="Folate"/>
+                  <Data value="Folic Acid"/>
+                  <Data value="Iodine"/>
+                  <Data value="Iron"/>
+                  <Data value="Magnesium"/>
+                  <Data value="Maganese"/>
+                  <Data value="Phosphorus"/>
+                  <Data value="Potassium"/>
+                  <Data value="Selenium"/>
+                  <Data value="Sodium"/>
+                  <Data value="Sugar"/>
+                  <Data value="Zinc"/>
+                </Column>
+                <Column editable="true" title="Minimum" type="java.lang.Integer"/>
+                <Column editable="true" title="Maximum" type="java.lang.Integer"/>
+                <Column editable="true" title="Measurement" type="java.lang.String">
+                  <Data value="grams"/>
+                  <Data value="grams"/>
+                  <Data value="calories"/>
+                  <Data value="grams"/>
+                  <Data value="grams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="grams"/>
+                  <Data value="International Unit"/>
+                  <Data value="milligrams"/>
+                  <Data value="micrograms"/>
+                  <Data value="milligrams"/>
+                  <Data value="micrograms"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="micrograms"/>
+                  <Data value="grams"/>
+                  <Data value="micrograms"/>
+                  <Data value="micrograms"/>
+                  <Data value="micrograms"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="milligrams"/>
+                  <Data value="micrograms"/>
+                  <Data value="milligrams"/>
+                  <Data value="grams"/>
+                  <Data value="milligrams"/>
+                </Column>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JTextField" name="apiTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="API Key"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="apiTextFieldFocusLost"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane6">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="excludedCuisinesJList">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane8">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="addedIntolsJList">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Please enter the type of food you want to eat."/>
+        <Property name="verticalAlignment" type="int" value="1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel15">
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="allDietsJList">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="11">
+                <StringItem index="0" value="Gluten Free"/>
+                <StringItem index="1" value="Ketogenic"/>
+                <StringItem index="2" value="Vegetarian"/>
+                <StringItem index="3" value="Lacto-Vegetarian"/>
+                <StringItem index="4" value="Ovo-Vegetarian"/>
+                <StringItem index="5" value="Vegan"/>
+                <StringItem index="6" value="Pescetarian"/>
+                <StringItem index="7" value="Paleo"/>
+                <StringItem index="8" value="Primal"/>
+                <StringItem index="9" value="Low FODMAP"/>
+                <StringItem index="10" value="Whole30"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JComboBox" name="dietCombo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Add (Inclusive)"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="dietCommit">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Commit"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dietCommitActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="sortCriteriaBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="54">
+            <StringItem index="0" value="Meta-score"/>
+            <StringItem index="1" value="Popularity"/>
+            <StringItem index="2" value="Healthiness"/>
+            <StringItem index="3" value="Price"/>
+            <StringItem index="4" value="Time"/>
+            <StringItem index="5" value="Random"/>
+            <StringItem index="6" value="Max-used-ingredients"/>
+            <StringItem index="7" value="Min-missing-ingredients"/>
+            <StringItem index="8" value="Alcohol"/>
+            <StringItem index="9" value="Caffeine"/>
+            <StringItem index="10" value="Copper"/>
+            <StringItem index="11" value="Energy"/>
+            <StringItem index="12" value="Calroies"/>
+            <StringItem index="13" value="Calcium"/>
+            <StringItem index="14" value="Carbohydrates"/>
+            <StringItem index="15" value="Carbs"/>
+            <StringItem index="16" value="Choline"/>
+            <StringItem index="17" value="Cholesterol"/>
+            <StringItem index="18" value="Total-fat"/>
+            <StringItem index="19" value="Fluoride"/>
+            <StringItem index="20" value="Trans-fat"/>
+            <StringItem index="21" value="Saturated-fat"/>
+            <StringItem index="22" value="Mono-unsaturated-fat"/>
+            <StringItem index="23" value="Poly-unsaturated-fat"/>
+            <StringItem index="24" value="Fiber"/>
+            <StringItem index="25" value="Folate"/>
+            <StringItem index="26" value="Folic-acid"/>
+            <StringItem index="27" value="Iodine"/>
+            <StringItem index="28" value="Iron"/>
+            <StringItem index="29" value="Magnesium"/>
+            <StringItem index="30" value="Maganese"/>
+            <StringItem index="31" value="Vitamin-B3"/>
+            <StringItem index="32" value="Niacin"/>
+            <StringItem index="33" value="Vitamin-B5"/>
+            <StringItem index="34" value="Pantothenic-acid"/>
+            <StringItem index="35" value="Phosphorus"/>
+            <StringItem index="36" value="Potassium"/>
+            <StringItem index="37" value="Protein"/>
+            <StringItem index="38" value="Vitamin-B2"/>
+            <StringItem index="39" value="Riboflavin"/>
+            <StringItem index="40" value="Selenium"/>
+            <StringItem index="41" value="Sodium"/>
+            <StringItem index="42" value="Vitamin-B1"/>
+            <StringItem index="43" value="Thiamin"/>
+            <StringItem index="44" value="Vitamin-A"/>
+            <StringItem index="45" value="Vitamin-B6"/>
+            <StringItem index="46" value="Vitamin-B12"/>
+            <StringItem index="47" value="Vitamin-C"/>
+            <StringItem index="48" value="Vitamin-D"/>
+            <StringItem index="49" value="Vitamin-D"/>
+            <StringItem index="50" value="Vitamin-E"/>
+            <StringItem index="51" value="Vitamin-K"/>
+            <StringItem index="52" value="Sugar"/>
+            <StringItem index="53" value="Zinc"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sortCriteriaBoxActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="addedDietsJList">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JSpinner" name="prepTime">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="prepTimeFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="resultNumSpin">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="100" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="resultNumSpinFocusLost"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
