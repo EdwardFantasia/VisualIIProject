@@ -16,15 +16,15 @@ import javax.net.ssl.HttpsURLConnection;
  *
  * @author Edwar
  */
-public class RecipeList {
+public class RecipeListCANDELETE {
     private ArrayList<Recipe> recipes;
     
     /*
-    Creates new RecipeList object from JSON (used as final step of API retrieval)
+    Creates new RecipeListCANDELETE object from JSON (used as final step of API retrieval)
     @param tring name: name of Recipe object,
            ArrayList<Recipe> recipes: list of Recipe objects retrieved from API,
     */
-    public RecipeList(ArrayList<Recipe> recipes){
+    public RecipeListCANDELETE(ArrayList<Recipe> recipes){
         this.recipes = recipes;
     }
     /*

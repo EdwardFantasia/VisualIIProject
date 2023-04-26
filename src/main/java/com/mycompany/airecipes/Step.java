@@ -42,4 +42,12 @@ public class Step {
     public String getStep(){
         return this.step;
     }
+    
+    public int getNumber(){
+        return this.number;
+    }
+    
+    public ArrayList<Equipment> getEquipment(){
+        return this.equipment;
+    }
 }

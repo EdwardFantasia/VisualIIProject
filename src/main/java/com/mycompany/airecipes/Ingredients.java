@@ -24,4 +24,16 @@ public class Ingredients {
         this.name = name;
     }
     
+    public int getIngredientId(){
+        return this.id;
+    }
+    
+    public String getIngredientImage(){
+        return this.image;
+    }
+    
+    public String getIngredientName(){
+        return this.name;
+    }
+    
 }

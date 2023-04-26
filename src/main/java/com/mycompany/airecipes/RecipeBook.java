@@ -4,19 +4,65 @@
  */
 package com.mycompany.airecipes;
 
+import com.google.gson.Gson;
+import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.net.ssl.HttpsURLConnection;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Edwar
  */
-public class RecipeBook extends javax.swing.JFrame {
+public class RecipeBook extends javax.swing.JFrame{
+    
+    private ArrayList<Result> resultList; //TODO: get rid of this if not used
+    
+    private DefaultListModel recipeTitles;
+    private DefaultListModel recipeAspectTitles;
+    private DefaultListModel stepsModel;
+    
+    private Gson gson;
+    
+    private String apiKey;
+    
+    private Recipe[] recipeAspectList;
+    
+    private ArrayList<StepInform> stepInforms;
 
     /**
      * Creates new form RecipeBook
      */
-    public RecipeBook() {
+    public RecipeBook(ArrayList<Result> resultList, DefaultListModel recipeTitles, String apiKey) {
         initComponents();
+        this.resultList = resultList;
+        this.recipeTitles = recipeTitles;
+        
+        System.out.println(recipeTitles);
+        
+        this.recipeJList.setModel(recipeTitles);
+        
+        this.gson = new Gson();
+        
+        this.apiKey = apiKey;
+        
+        this.recipeAspectTitles = new DefaultListModel();
+        
+        this.stepsModel = new DefaultListModel();
+        
+        this.recipeAspectsJList.setVisible(false);
+        
+        this.stepInforms = new ArrayList<StepInform>();
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,25 +79,33 @@ public class RecipeBook extends javax.swing.JFrame {
         cookbookJList = new javax.swing.JList<>();
         saveButton = new javax.swing.JButton();
         loadButton = new javax.swing.JButton();
-        displayPanel = new javax.swing.JPanel();
         addToCookBookButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        stepsJList = new javax.swing.JList<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        recipeAspectsJList = new javax.swing.JList<>();
+        pictureLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(1144, 531));
 
         recipeJList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        recipeJList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                recipeJListValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(recipeJList);
 
         jLabel1.setText("Cook Book");
 
-        cookbookJList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(cookbookJList);
 
         saveButton.setText("Save Cookbook");
@@ -63,44 +117,72 @@ public class RecipeBook extends javax.swing.JFrame {
 
         loadButton.setText("Load Cookbook");
 
-        javax.swing.GroupLayout displayPanelLayout = new javax.swing.GroupLayout(displayPanel);
-        displayPanel.setLayout(displayPanelLayout);
-        displayPanelLayout.setHorizontalGroup(
-            displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
-        );
-        displayPanelLayout.setVerticalGroup(
-            displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
-
         addToCookBookButton.setText("Add to Cook Book");
+
+        stepsJList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stepsJListMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(stepsJList);
+
+        recipeAspectsJList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                recipeAspectsJListValueChanged(evt);
+            }
+        });
+        jScrollPane4.setViewportView(recipeAspectsJList);
+
+        jLabel2.setText("Recipe Components");
+
+        jLabel3.setText("Recipe Steps");
+
+        jLabel4.setText("Recipes");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(addToCookBookButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(loadButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(saveButton)))
-                        .addContainerGap())
+                        .addGap(135, 135, 135)
+                        .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(saveButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(105, 105, 105))))
+                        .addComponent(loadButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(addToCookBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(pictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(67, 67, 67))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(216, 216, 216)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(197, 197, 197)
+                                .addComponent(jLabel2)))
+                        .addGap(176, 176, 176)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,21 +190,28 @@ public class RecipeBook extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 8, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1)
+                        .addComponent(pictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addToCookBookButton)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(204, 204, 204)
-                                .addComponent(addToCookBookButton)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(saveButton)
+                            .addComponent(saveButton, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(loadButton))))
                 .addContainerGap())
         );
@@ -134,6 +223,100 @@ public class RecipeBook extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    private void recipeJListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_recipeJListValueChanged
+        if (evt.getValueIsAdjusting() != true){
+            
+            int selectedId = resultList.get(recipeJList.getSelectedIndex()).getResultId();
+            
+            try { //TODO: Implement threading so this function doesn't take forever
+                URL imgUrl = new URL("https://spoonacular.com/recipeImages/" + selectedId + "-636x393.jpg");
+                Image image = ImageIO.read(imgUrl);
+                image = image.getScaledInstance(pictureLabel.getWidth(), pictureLabel.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon labelIcon = new ImageIcon(image);
+                pictureLabel.setIcon(labelIcon);
+            } catch (IOException e){
+                System.out.println("Error getting image");
+            } catch (IndexOutOfBoundsException e){}
+            
+            recipeAspectTitles.clear();
+            stepsModel.clear();
+        
+            try{
+                URL url = new URL("https://api.spoonacular.com/recipes/" + selectedId + "/analyzedInstructions?" + apiKey);
+                HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.setRequestProperty("Content-Type", "application/json");
+               
+                connection.connect();
+    
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            
+                recipeAspectList = gson.fromJson(reader, Recipe[].class);
+                
+                for(int i = 0; i < recipeAspectList.length; i++){
+                    System.out.println(recipeAspectList[i].getName());
+                
+                    if(recipeAspectList[i].getName().length() == 0){ //if recipe aspect's title is ""
+                        recipeAspectTitles.add(i, recipeJList.getSelectedValue());
+                    }
+                    else{
+                        recipeAspectTitles.add(i, recipeAspectList[i].getName());
+                    }
+                }
+                
+                if(recipeAspectTitles.getSize() > 1){ //if the DLM that holds recipe aspect of selected recipe has more than one aspect
+                    recipeAspectsJList.setModel(recipeAspectTitles);
+                    recipeAspectsJList.setVisible(true);
+                }
+                else{
+                    if(recipeAspectsJList.isVisible() == true){
+                        this.recipeAspectsJList.setVisible(false);
+                    }
+                    
+                    for(int i = 0; i < recipeAspectList[0].getSteps().size(); i++){
+                        stepsModel.add(i, recipeAspectList[0].getSteps().get(i).getStep());
+                    }
+                    
+                    makeDialogs(recipeAspectList[0].getSteps());
+                    
+                    stepsJList.setModel(stepsModel);
+                }
+                
+            } catch(MalformedURLException ex){System.out.println("nah");} //TODO: include error message
+            catch(IOException io){System.out.println(io);}
+        }
+    }//GEN-LAST:event_recipeJListValueChanged
+
+    private void recipeAspectsJListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_recipeAspectsJListValueChanged
+        if(evt.getValueIsAdjusting() == true && recipeAspectsJList.isVisible()){
+            stepsModel.clear();
+            for(int i = 0; i < recipeAspectList[recipeAspectsJList.getSelectedIndex()].getSteps().size(); i++){
+                stepsModel.add(i, recipeAspectList[recipeAspectsJList.getSelectedIndex()].getSteps().get(i).getStep());
+            }
+            
+            //TODO: thread so this doesnt take forever
+            
+            makeDialogs(recipeAspectList[recipeAspectsJList.getSelectedIndex()].getSteps());
+            
+            stepsJList.setModel(stepsModel);        
+        }
+    }//GEN-LAST:event_recipeAspectsJListValueChanged
+
+    private void stepsJListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stepsJListMouseClicked
+        stepInforms.get(stepsJList.getSelectedIndex()).setVisible(true);
+        
+    }//GEN-LAST:event_stepsJListMouseClicked
+    
+    private void makeDialogs(ArrayList<Step> stepList){ //WORKS, SOMETHING WITH STEP INFORM IS CAUSING AN ERROR WHEN CREATING FORMS
+        if(this.stepInforms.isEmpty() == false){
+            this.stepInforms.clear();
+        }
+        
+        for(int i = 0; i < stepList.size(); i++){
+            this.stepInforms.add(new StepInform(this, true, stepList.get(i).getIngredients(), stepList.get(i).getEquipment(), stepList.get(i).getNumber()));
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -160,24 +343,24 @@ public class RecipeBook extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(RecipeBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RecipeBook().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToCookBookButton;
     private javax.swing.JList<String> cookbookJList;
-    private javax.swing.JPanel displayPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton loadButton;
+    private javax.swing.JLabel pictureLabel;
+    private javax.swing.JList<String> recipeAspectsJList;
     private javax.swing.JList<String> recipeJList;
     private javax.swing.JButton saveButton;
+    private javax.swing.JList<String> stepsJList;
     // End of variables declaration//GEN-END:variables
 }

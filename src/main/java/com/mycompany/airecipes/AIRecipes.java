@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Set;
@@ -25,6 +26,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 
 //TODO: EVERYTHING FOR HAS TO BE CASE SENSITIVE
+//TODO: CHECK JLIST LOGIC, SOME FUCKED SHIT IS GOING ON WHERE EXCL IS NOT UPDATED
 public class AIRecipes extends javax.swing.JFrame {
 
     private Gson gson;
@@ -52,6 +54,8 @@ public class AIRecipes extends javax.swing.JFrame {
     
     private String allNutritions;
     private HashMap<String, HashMap<String, String>> nutritionMap;
+    
+    private RecipeBook recipeBook;
 
     /**
      * Creates new AIRecipes form, initializes components such as buttons and list models.
@@ -449,11 +453,6 @@ public class AIRecipes extends javax.swing.JFrame {
         });
 
         resultNumSpin.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
-        resultNumSpin.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                resultNumSpinFocusLost(evt);
-            }
-        });
 
         cuisineComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Add to Excluded Cuisines", "Add to Included Cuisines" }));
 
@@ -631,15 +630,17 @@ public class AIRecipes extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(prepTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(prepTimeCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(prepTimeCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel6)
+                                        .addComponent(prepTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(sortCriteriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(sortCritCheck))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sortCritCheck, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel7)
+                                        .addComponent(sortCriteriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel8)
@@ -739,7 +740,11 @@ public class AIRecipes extends javax.swing.JFrame {
             }
         }
         
-        food = "query=" + desiredFood.getText();
+        //TODO: threading so this isnt slow (not necessary for this part cuz it's pretty fast but may be nice)
+        
+        food = "query=" + desiredFood.getText(); //TODO: Replace spaces with _
+        
+        resultNum = "&number=" + resultNumSpin.getValue().toString();
         
         if(exclCuisDLM.isEmpty()){
             excludedCuisines = "";
@@ -786,10 +791,24 @@ public class AIRecipes extends javax.swing.JFrame {
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             System.out.println("2");
             Food foodJson = gson.fromJson(reader, Food.class);
-            System.out.println(foodJson.getNumber());
-            int result = foodJson.getResults().get(0).getResultId();
+            System.out.println(foodJson.getAPINumber());
+            int result = foodJson.getAPIResults().get(0).getResultId();
             System.out.println(result);
             System.out.println(url);
+            
+            DefaultListModel foodTitles = new DefaultListModel();
+            
+            ArrayList<Result> resultList = foodJson.getAPIResults();
+            
+            for(int i = 0; i < resultList.size(); i++){
+                foodTitles.add(i, resultList.get(i).getResultTitle());
+            }
+            
+            this.recipeBook = new RecipeBook(resultList,foodTitles, this.apiKey);
+            
+            recipeBook.setVisible(true);
+            
+            this.setVisible(false);
             
         } catch(MalformedURLException ex){System.out.println("nah");} //TODO: include error message
         catch(IOException io){System.out.println(io);}
@@ -804,7 +823,19 @@ public class AIRecipes extends javax.swing.JFrame {
         if(allCuisinesJList.isSelectionEmpty() == false && cuisineComboBox.getSelectedIndex() == 0){
 
             excludedCuisines = excludedCuisines + allCuisinesJList.getSelectedValue() + ",";
-            inclCuisines = inclCuisines.replace(allCuisinesJList.getSelectedValue() + ",", "");
+            System.out.println(inclCuisines.indexOf(allCuisinesJList.getSelectedValue() + ","));
+            System.out.println(inclCuisines.lastIndexOf(allCuisinesJList.getSelectedValue() + ","));
+            if(inclCuisines.indexOf(allCuisinesJList.getSelectedValue() + ",") == inclCuisines.lastIndexOf(allCuisinesJList.getSelectedValue() + ",")){
+                inclCuisines = inclCuisines.replace(allCuisinesJList.getSelectedValue() + ",", "");
+            }
+            
+            else{
+                inclCuisines = deleteStringPortion(inclCuisines.split(","), allCuisinesJList.getSelectedValue(), " ");
+                if(inclCuisines.contains("&cuisine=") == false){
+                    inclCuisines = "&cuisine=" + inclCuisines;
+                }
+            }
+            
             exclCuisDLM.addElement(allCuisinesJList.getSelectedValue());
             excludedCuisinesJList.setModel(exclCuisDLM);
 
@@ -816,7 +847,18 @@ public class AIRecipes extends javax.swing.JFrame {
         }
         else if(excludedCuisinesJList.isSelectionEmpty() == false && cuisineComboBox.getSelectedIndex() == 1){
             inclCuisines = inclCuisines + excludedCuisinesJList.getSelectedValue() + ",";
-            excludedCuisines = excludedCuisines.replace(excludedCuisinesJList.getSelectedValue() + ",", "");
+            
+            if(excludedCuisines.indexOf(excludedCuisinesJList.getSelectedValue() + ",") == excludedCuisines.lastIndexOf(excludedCuisinesJList.getSelectedValue() + ",")){
+                excludedCuisines = excludedCuisines.replace(excludedCuisinesJList.getSelectedValue() + ",", "");
+            }
+            
+            else{
+                excludedCuisines = deleteStringPortion(excludedCuisines.split(","), excludedCuisinesJList.getSelectedValue(), " ");
+                if(excludedCuisines.contains("&excludeCuisine=") == false){
+                    excludedCuisines = "&excludeCuisine=" + excludedCuisines;
+                }
+            }
+            
             allCuisinesDLM.addElement(excludedCuisinesJList.getSelectedValue());
             allCuisinesJList.setModel(allCuisinesDLM);
 
@@ -879,14 +921,6 @@ public class AIRecipes extends javax.swing.JFrame {
         System.out.println(sortDir);
     }//GEN-LAST:event_sortToggleItemStateChanged
 
-   /*
-    When the person is no longer using the resultNumSpin JSpinner, the resultNum field will be changed to the new value
-    @params java.awt.event.FocusEvent: Focus on this form aspect is lost (no longer selected)
-    */
-    private void resultNumSpinFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_resultNumSpinFocusLost
-        resultNum = "&number=" + resultNumSpin.getValue().toString();
-    }//GEN-LAST:event_resultNumSpinFocusLost
-
     /*
     Once the dietCommit button is clicked, the allDiets JList will remove the currently selected item and that same item will be added to the addedDiets JList
     @params java.awt.event.ActionEvent evt: an action occurs to that form aspect
@@ -939,7 +973,7 @@ public class AIRecipes extends javax.swing.JFrame {
     @params java.awt.event.FocusEvent: Focus on this form aspect is lost (no longer selected)
     */
     private void apiTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_apiTextFieldFocusLost
-        apiKey = "&apiKey=" + apiTextField.getText();
+        apiKey = "&apiKey=" + apiTextField.getText(); //TODO: change this from focusLost to something else
     }//GEN-LAST:event_apiTextFieldFocusLost
     /*
     Based off of the current value of the prepTime JSpinner, the maxTime field will be changed to that value
@@ -1034,6 +1068,18 @@ public class AIRecipes extends javax.swing.JFrame {
         });
     }
 
+    public String deleteStringPortion(String[] splitString, String exception, String helperCharacter){
+        String newString = "";
+        
+        for(int i = 0; i < splitString.length; i++){
+            if(splitString[i].contains(exception) == false || splitString[i].contains(helperCharacter)){
+                newString = newString + splitString[i] + ",";
+            }
+        }
+        
+        return newString;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> addedDietsJList;
     private javax.swing.JList<String> addedIntolsJList;

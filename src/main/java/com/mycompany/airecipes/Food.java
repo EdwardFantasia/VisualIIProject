@@ -38,43 +38,18 @@ public class Food {
     /*
     Retrieves the number field of this Food object
     */
-    public int getNumber(){
+    public int getAPINumber(){
         return this.number;
     }
     
     /*
     Retrieves the results field of this Food object
     */
-    public ArrayList<Result> getResults(){
+    public ArrayList<Result> getAPIResults(){
         return this.results;
     }
     
-    /*
-    Used to test Spoonacular API *WILL NOT BE IN FINAL PROJECT*
-    */
-    public static void main(String[] args) {
-        
-        Gson gson = new Gson();
-        
-        try{
-            URL url = new URL("https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2&type=maincourse&apiKey=ecf813497d49484187d848b720e3baff");
-            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setRequestProperty("Content-Type", "application/json");
-               
-            connection.connect();
-            System.out.println("1");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            System.out.println("2");
-            Food foodJson = gson.fromJson(reader, Food.class);
-            System.out.println(foodJson.getNumber());
-            int id = foodJson.getResults().get(0).getResultId();
-            System.out.println(id);
-            String stringId = Integer.toString(id);
-            
-            
-            
-        } catch(MalformedURLException ex){System.out.println("nah");}
-        catch(IOException io){System.out.println(io);}
+    public int getAPIOffset(){
+        return this.offset;
     }
 }

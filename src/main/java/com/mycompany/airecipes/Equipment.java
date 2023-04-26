@@ -20,7 +20,7 @@ public class Equipment {
            String name: name of Equipment object,
            Temperature temp: Temperature of what temp this should be used at
     */
-    public Equipment(int id, String image, String name, Temperature         temp){
+    public Equipment(int id, String image, String name, Temperature temp){
         this.id = id;
         this.image = image;
         this.name = name;
@@ -32,6 +32,18 @@ public class Equipment {
     */
     public Temperature getEquipTemp(){
         return this.temp;
+    }
+    
+    public String getEquipName(){
+        return this.name;
+    }
+    
+    public String getEquipImage(){
+        return this.image;
+    }
+    
+    public int getEquipId(){
+        return this.id;
     }
     
 }
