@@ -1,7 +1,7 @@
 /*
 Used for Spoonacular API to retrieve API JSON within API call
 */
-package com.mycompany.airecipes;
+package airecipes;
 
 /**
  *
@@ -24,14 +24,27 @@ public class Ingredients {
         this.name = name;
     }
     
+    /**
+     * Returns Ingredient id
+     * @return temp - id of this Ingredient
+     */
     public int getIngredientId(){
         return this.id;
     }
     
+    
+    /**
+     * Returns Ingredient image
+     * @return temp - image line of this Ingredient
+     */
     public String getIngredientImage(){
         return this.image;
     }
     
+    /**
+     * Returns Ingredient name
+     * @return temp - name of this Ingredient
+     */
     public String getIngredientName(){
         return this.name;
     }

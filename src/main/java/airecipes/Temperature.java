@@ -1,7 +1,7 @@
 /*
 Used for Spoonacular API to retrieve API JSON within API call
 */
-package com.mycompany.airecipes;
+package airecipes;
 
 /**
  *

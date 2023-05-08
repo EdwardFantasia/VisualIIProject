@@ -1,7 +1,7 @@
 /*
 Used for Spoonacular API to retrieve API JSON within API call
 */
-package com.mycompany.airecipes;
+package airecipes;
 
 import java.util.ArrayList;
 
@@ -22,16 +22,18 @@ public class Recipe {
         this.steps = steps;
     }
        
-    /*
-    Retrieves the steps field of Recipe object
-    */
+    /**
+     * Returns Recipe's steps
+     * @return steps - ArrayList of Step objects from this Recipe
+     */
     public ArrayList<Step> getSteps(){
         return this.steps;
     }
     
-    /*
-    Retrieves the name field of Recipe object
-    */
+    /**
+     * Returns Recipe name
+     * @return name - name of this Recipe
+     */
     public String getName(){
         return this.name;
     }

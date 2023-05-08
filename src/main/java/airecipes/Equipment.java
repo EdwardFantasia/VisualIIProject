@@ -1,7 +1,7 @@
 /*
 Used for Spoonacular API to retrieve API JSON within API cal
 */
-package com.mycompany.airecipes;
+package airecipes;
 
 /**
  *
@@ -27,21 +27,34 @@ public class Equipment {
         this.temp = temp;
     }
     
-    /*
-    Retrieves the temperature of this Equipment object
-    */
+    /**
+     * Returns Equipment temp
+     * @return temp - temperature of this Equipment
+     */
     public Temperature getEquipTemp(){
         return this.temp;
     }
     
+   /**
+     * Returns Equipment name
+     * @return name - name of this Equipment
+     */
     public String getEquipName(){
         return this.name;
     }
     
+    /**
+     * Returns Equipment image
+     * @return image - image of this Equipment
+     */
     public String getEquipImage(){
         return this.image;
     }
     
+    /**
+     * Returns Equipment id
+     * @return id - id of this Equipment
+     */
     public int getEquipId(){
         return this.id;
     }

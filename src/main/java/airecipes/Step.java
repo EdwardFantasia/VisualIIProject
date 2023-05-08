@@ -1,7 +1,7 @@
 /*
 Used for Spoonacular API to retrieve API JSON within API cal
 */
-package com.mycompany.airecipes;
+package airecipes;
 
 import java.util.ArrayList;
 
@@ -43,10 +43,19 @@ public class Step {
         return this.step;
     }
     
+    
+    /**
+     * Returns Step number
+     * @return number - number of this Step
+     */
     public int getNumber(){
         return this.number;
     }
     
+    /**
+     * Returns Step Equipment ArrayList
+     * @return equipment - ArrayList of Equipment of this Step
+     */
     public ArrayList<Equipment> getEquipment(){
         return this.equipment;
     }

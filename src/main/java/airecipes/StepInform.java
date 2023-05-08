@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package com.mycompany.airecipes;
+package airecipes;
 
 import java.awt.Image;
 import java.io.IOException;
@@ -12,7 +12,6 @@ import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JList;
 
 /**
  *
@@ -39,15 +38,9 @@ public class StepInform extends javax.swing.JDialog {
         
         this.stepIngreds = stepIngreds;
         
-        System.out.println(stepIngreds.size());
-        
         this.stepEquip = stepEquip;
         
-        System.out.println(stepEquip.size());
-        
         this.stepNum = stepNum;
-        
-        //TODO: thread this shit so it doesnt take forever
         
         ingredsDLM = new DefaultListModel();
         
@@ -159,16 +152,29 @@ public class StepInform extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * changes equipIcon to currently selected equipment item
+     * @param evt - event that occurs on JFrame JList
+     */
     private void equipJListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_equipJListValueChanged
         changePhoto(equipIcon, stepEquip.get(equipJList.getSelectedIndex()).getEquipImage());
     }//GEN-LAST:event_equipJListValueChanged
 
+    /**
+     * changes ingredsIcon to currently selected equipment item
+     * @param evt - event that occurs on JFrame JList
+     */
     private void ingredsJListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ingredsJListValueChanged
         changePhoto(ingredsIcon, stepIngreds.get(ingredsJList.getSelectedIndex()).getIngredientImage());
     }//GEN-LAST:event_ingredsJListValueChanged
 
+    /**
+     * changes photo using to the label using the imgLink
+     * @param label - label to display picture on
+     * @param imgLink - link of image to display
+     */
     private void changePhoto(JLabel label, String imgLink){
-        try { //TODO: Implement threading so this function doesn't take forever
+        try {
             URL imgUrl;
             if(label == this.equipIcon){
                 imgUrl = new URL("https://spoonacular.com/cdn/equipment_500x500/" + imgLink);
@@ -181,9 +187,24 @@ public class StepInform extends javax.swing.JDialog {
             ImageIcon labelIcon = new ImageIcon(image);
             label.setIcon(labelIcon);
         } catch (IOException e){
-            System.out.println("Error getting image");
-        } catch (IndexOutOfBoundsException e){}
-        //TODO: implement catch for image being null
+            setPlaceholder(label);
+        } catch (IndexOutOfBoundsException e){
+            setPlaceholder(label);
+        }
+        catch(NullPointerException e){
+            setPlaceholder(label);
+        }
+    }
+    
+    /**
+     * sets the pictureHolder icon to the placeholder image
+     * @param pictureHolder - label to set placeholder to
+     */
+    public void setPlaceholder(JLabel pictureHolder){
+        ImageIcon placeholder = new ImageIcon("src/main/res/placeholder.jpg");
+        Image image = placeholder.getImage();
+        placeholder = new ImageIcon(image.getScaledInstance(pictureHolder.getWidth(), pictureHolder.getHeight(), Image.SCALE_SMOOTH));
+        pictureHolder.setIcon(placeholder);
     }
     
     /**

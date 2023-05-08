@@ -1,7 +1,7 @@
 /*
 Used for Spoonacular API to retrieve API JSON within API call
 */
-package com.mycompany.airecipes;
+package airecipes;
 
 /**
  *
@@ -21,16 +21,18 @@ public class Result {
         this.title = title;
     }
     
-    /*
-    Retrieves id field of Result object
-    */
+    /**
+     * Returns Result id
+     * @return id - id of this Result
+     */
     public int getResultId(){
         return id;
     }
     
-    /*
-    Retrieves title field of Result object
-    */
+    /**
+     * Returns Result title
+     * @return title - title of this Result
+     */
     public String getResultTitle(){
         return title;
     }
